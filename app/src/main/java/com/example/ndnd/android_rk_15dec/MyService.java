@@ -19,7 +19,7 @@ public class MyService extends IntentService {
     public final static String ACTION_RESPONSE = "ru.mail.park.WEATHER_LOAD_ACTION";
     public final static String URL = "https://neutrinoapi-phone-validate.p.mashape.com/phone-validate";
     public final static String X_MASHAPE = "X-Mashape-Key";
-    public final static String X_MASHAPE_KEY = "xbsaIWfudGmshHaydN3vIHCVyn43p1cLjwPjsnwO6oeBQiBplA";
+    public final static String X_MASHAPE_KEY = "3g3zl2UpcRmshjBzUNtBL2pjj5ksp102Do8jsnjUl3MISgsZG7";
     public static final String RESPONSE_STRING = "myResponse";
 
     public MyService() {
