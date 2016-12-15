@@ -49,7 +49,7 @@ public class Activity_number extends AppCompatActivity {
         mSettings = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE);
         if(mSettings.contains("country")) {
             country = mSettings.getString("country", "");
-            textView_countryCode.setText(textView_countryCode.getText() + country);
+            textView_countryCode.setText(textView_countryCode.getText().toString().concat(country));
         }
 
         Button button_phone = (Button) findViewById(R.id.button_check);
@@ -80,13 +80,34 @@ public class Activity_number extends AppCompatActivity {
             jsonResult = "";
             try {
                 jObject = new JSONObject(result);
-                jsonResult += "Valid: " + jObject.getString("valid") + "\n";
-                jsonResult += "International-number: " + jObject.getString("international-number") + "\n";
-                jsonResult += "International-calling-code: " + jObject.getString("international-calling-code") + "\n";
-                jsonResult += "Type: " + jObject.getString("type") + "\n";
-                jsonResult += "Is-mobile: " + jObject.getString("is-mobile") + "\n";
-                jsonResult += "Local-number: " + jObject.getString("local-number") + "\n";
-                jsonResult += "Country-code: " + jObject.getString("country-code") + "\n";
+                if (jObject.has("valid")) {
+                    jsonResult += "Valid: " + jObject.getString("valid") + "\n";
+                }
+                if (jObject.has("international-number")) {
+                    jsonResult += "International-number: " + jObject.getString("international-number") + "\n";
+                }
+                if (jObject.has("international-calling-code")) {
+                    jsonResult += "International-calling-code: " + jObject.getString("international-calling-code") + "\n";
+                }
+                if (jObject.has("type")) {
+                    jsonResult += "Type: " + jObject.getString("type") + "\n";
+                }
+                if (jObject.has("is-mobile")) {
+                    jsonResult += "Is-mobile: " + jObject.getString("is-mobile") + "\n";
+                }
+                if (jObject.has("local-number")) {
+                    jsonResult += "Local-number: " + jObject.getString("local-number") + "\n";
+                }
+                if (jObject.has("country-code")) {
+                    jsonResult += "Country-code: " + jObject.getString("country-code") + "\n";
+                }
+
+                if (jObject.has("api-error")) {
+                    jsonResult += "api-error: " + jObject.getString("api-error") + "\n";
+                }
+                if (jObject.has("api-error-msg")) {
+                    jsonResult += "api-error-msg: " + jObject.getString("api-error-msg") + "\n";
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
